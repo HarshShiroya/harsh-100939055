@@ -21,6 +21,7 @@ steps:
       '--image', 'us-central1-docker.pkg.dev/$PROJECT_ID/harsh-100939055/my-app:$SHORT_SHA',
       '--region', 'us-central1',
       '--platform', 'managed',
+      '--port', '3000',
       '--allow-unauthenticated'
     ]
 
