@@ -14,6 +14,16 @@ steps:
       'us-central1-docker.pkg.dev/$PROJECT_ID/harsh-100939055/my-app:$SHORT_SHA'
     ]
 
+  # Step 3: Deploy using Cloud run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args: [
+      'gcloud', 'run', 'deploy', 'dc-harsh-100939055',
+      '--image', 'us-central1-docker.pkg.dev/$PROJECT_ID/harsh-100939055/my-app:$SHORT_SHA',
+      '--region', 'us-central1',
+      '--platform', 'managed',
+      '--allow-unauthenticated'
+    ]
+
 options:
   # Configure Cloud Build to use a regional, user-owned bucket for build logs
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
